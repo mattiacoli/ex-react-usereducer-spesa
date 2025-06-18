@@ -5,6 +5,7 @@ function App() {
 
   const [addedProducts, setAddedProducts] = useState([])
 
+
   const products = [
     { name: 'Mela', price: 0.5 },
     { name: 'Pane', price: 1.2 },
@@ -33,6 +34,21 @@ function App() {
     ))
   }
 
+  const removeFromCart = (i) => {
+    const filteredCart = addedProducts.filter((item, index) => index !== i)
+    setAddedProducts(filteredCart)
+  }
+
+  const prices = addedProducts.map(item => item.price * item.quantity)
+  console.log(prices);
+
+  const totalPrice = prices.reduce((acc, p) => acc + p, 0).toFixed(2)
+  console.log(totalPrice);
+
+
+
+
+
 
   return (
     <div className='products_list'>
@@ -58,9 +74,11 @@ function App() {
                 <strong>{item.name}</strong>
                 <p>prezzo: {item.price} euro</p>
                 <p>quantità: {item.quantity}</p>
+                <button onClick={() => removeFromCart(i)}>Rimuovi dal carrello</button>
               </li>
             ))}
           </ul>
+          <p>Totale : <strong>{totalPrice}</strong></p>
         </div>
       }
     </div>
