@@ -39,10 +39,9 @@ function App() {
     setAddedProducts(filteredCart)
   }
 
-  const prices = addedProducts.map(item => item.price * item.quantity)
-  console.log(prices);
 
-  const totalPrice = prices.reduce((acc, p) => acc + p, 0).toFixed(2)
+  const totalPrice = addedProducts.map(item => item.price * item.quantity)
+    .reduce((acc, p) => acc + p, 0).toFixed(2)
   console.log(totalPrice);
 
 
@@ -78,7 +77,10 @@ function App() {
               </li>
             ))}
           </ul>
-          <p>Totale : <strong>{totalPrice}</strong></p>
+          <div className="total_price">
+            <p>Totale </p>
+            <strong>{totalPrice}</strong>
+          </div>
         </div>
       }
     </div>
