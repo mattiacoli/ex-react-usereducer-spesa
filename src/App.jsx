@@ -23,8 +23,14 @@ function App() {
       }
       setAddedProducts([...addedProducts, item])
     } else {
-      console.log('Prodotto già presente nel carrello ')
+      updateProductQuantity(product)
     }
+  }
+
+  const updateProductQuantity = (product) => {
+    setAddedProducts(addedProducts.map(item =>
+      item.name === product.name ? { ...item, quantity: item.quantity + 1 } : item
+    ))
   }
 
 
