@@ -12,9 +12,18 @@ function App() {
 
 
   return (
-    <>
-      <h1>HI</h1>
-    </>
+    <div className='products_list'>
+
+      <h1>Lista prodotti</h1>
+      <ul>
+        {products.map((p, i) => (
+          <li key={i}>
+            <strong>{p.name}</strong>
+            <p>prezzo: {p.price} euro</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
