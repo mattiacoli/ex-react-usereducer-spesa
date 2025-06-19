@@ -31,3 +31,13 @@
   text-align: center;
   line-height: 1.5;
 }
+
+.quantity_input {
+  display: flex;
+  gap: 1rem;
+
+  input {
+    width: 50px;
+    text-align: center;
+  }
+}
